@@ -12,34 +12,36 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ *
+ * @author user
+ */
 @Entity
-@Table(name = "ProductTable")
+@Table(name = "TBL_PRODUCT")
 public class Product implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
+    private int id;
     private String productName;
-    private String productPrice;
-    private String productDeskrip;
-    private double productprice;
+    private double productPrice;
+    private String productDescription;
     private String imagePath;
-    private String productCategory;
+    private String productCategory;    
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (int) id;
         return hash;
     }
 
@@ -50,7 +52,7 @@ public class Product implements Serializable {
             return false;
         }
         Product other = (Product) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if (this.id != other.id) {
             return false;
         }
         return true;
@@ -58,7 +60,7 @@ public class Product implements Serializable {
 
     @Override
     public String toString() {
-        return "com.s.model.Product[ id=" + id + " ]";
+        return "id.co.mxc.model.Product[ id=" + id + " ]";
     }
 
     /**
@@ -78,43 +80,29 @@ public class Product implements Serializable {
     /**
      * @return the productPrice
      */
-    public String getProductPrice() {
+    public double getProductPrice() {
         return productPrice;
     }
 
     /**
      * @param productPrice the productPrice to set
      */
-    public void setProductPrice(String productPrice) {
+    public void setProductPrice(double productPrice) {
         this.productPrice = productPrice;
     }
 
     /**
-     * @return the productDeskrip
+     * @return the productDescription
      */
-    public String getProductDeskrip() {
-        return productDeskrip;
+    public String getProductDescription() {
+        return productDescription;
     }
 
     /**
-     * @param productDeskrip the productDeskrip to set
+     * @param productDescription the productDescription to set
      */
-    public void setProductDeskrip(String productDeskrip) {
-        this.productDeskrip = productDeskrip;
-    }
-
-    /**
-     * @return the productprice
-     */
-    public double getProductprice() {
-        return productprice;
-    }
-
-    /**
-     * @param productprice the productprice to set
-     */
-    public void setProductprice(double productprice) {
-        this.productprice = productprice;
+    public void setProductDescription(String productDescription) {
+        this.productDescription = productDescription;
     }
 
     /**
@@ -144,5 +132,5 @@ public class Product implements Serializable {
     public void setProductCategory(String productCategory) {
         this.productCategory = productCategory;
     }
-
+    
 }
