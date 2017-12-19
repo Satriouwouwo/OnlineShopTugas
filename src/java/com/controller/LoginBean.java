@@ -6,7 +6,7 @@
 package com.controller;
 
 /**
- *
+ *   
  * @author user
  */
 public class LoginBean {
